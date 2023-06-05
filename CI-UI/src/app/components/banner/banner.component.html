@@ -1,0 +1,20 @@
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner position-relative" role="listbox">
+    <img src="{{ getSlide() }}" alt="slide" class="corouse-image" />
+    <button
+      mat-raised-button
+      class="position-absolute-prevbtn"
+      (click)="getPrev()"
+    >
+      Prev
+    </button>
+
+    <button
+      mat-raised-button
+      class="position-absolute-nextbtn"
+      (click)="getNext()"
+    >
+      Next
+    </button>
+  </div>
+</div>

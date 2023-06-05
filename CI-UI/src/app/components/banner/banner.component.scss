@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components{
+
+
+
+
+}
+.corouse-image{
+    width: 65vw;
+    height: 100vh;
+}
+.position-absolute-prevbtn{
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    color: black !important;
+    background-color: rgb(190, 184, 182);
+}
+.position-absolute-nextbtn{
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    color: black !important;
+    background-color: rgb(190, 184, 182);
+}
+.position-relative{
+    position: relative;
+}
+
+@media only screen and (max-width: 1279px) {
+    .corouse-image{
+        width: 100vw;
+        height: auto;
+    }
+    
+}

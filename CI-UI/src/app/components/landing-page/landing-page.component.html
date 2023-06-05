@@ -1,0 +1,7 @@
+<button (click)="logout()" mat-raised-button>Logout</button>
+
+<ul *ngFor="let user of users">
+  <li>{{ user.firstName }}</li>
+  <li>{{ user.lastName }}</li>
+  <li>{{ user.phoneNumber }}</li>
+</ul>

@@ -1,0 +1,102 @@
+<div class="login-main">
+  <div class="login-left">
+    <app-banner></app-banner>
+  </div>
+  <div class="login-right">
+    <!-- <mat-error>*Email is required</mat-error> -->
+    <form class="example-form sm:p-4" [formGroup]="loginForm">
+      <div>
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Email</mat-label>
+          <div class="only-flex">
+            <input formControlName="email" matInput type="email" />
+            <span class="material-symbols-outlined"
+              ><mat-icon>mail</mat-icon>
+            </span>
+          </div>
+          <mat-error
+            *ngIf="
+              loginForm.controls['email'].invalid &&
+              loginForm.hasError('pattern', 'email')
+            "
+            class="red-text"
+            >Please enter valid Email</mat-error
+          >
+          <mat-error
+            *ngIf="
+              loginForm.controls['email'].invalid &&
+              loginForm.hasError('required', 'email')
+            "
+            class="red-text"
+            >Email is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field
+          appearance="outline"
+          class="example-full-width margin-top6"
+        >
+          <mat-label>Password</mat-label>
+          <div class="only-flex">
+            <input
+              formControlName="password"
+              [type]="type"
+              matInput
+              (blur)="validatePassword()"
+            />
+
+            <span (click)="hideShowPassword()" class="p-0">
+              <mat-icon>{{ eyeIcon }}</mat-icon></span
+            >
+          </div>
+
+          <mat-error
+            *ngIf="
+              loginForm.controls['password'].invalid &&
+              loginForm.hasError('pattern', 'password')
+            "
+            class="red-text"
+          >
+            Password must contains at-least 1 UpperCase, 1 LowerCase, 1 Digit
+            and 1 Special character and must be 8 to 15 character...
+          </mat-error>
+
+          <mat-error
+            *ngIf="
+              loginForm.controls['password'].invalid &&
+              loginForm.hasError('required', 'password')
+            "
+            class="red-text"
+            ><span> Password is required</span></mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div>
+        <button
+          (click)="onLogin()"
+          class="login-button hover:login-buttonhover"
+          mat-raised-button
+          [ngClass]="{
+            'mt-12':
+              loginForm.controls['password'].invalid &&
+              loginForm.hasError('pattern', 'password') &&
+              isPasswordBlur
+          }"
+        >
+          Login
+        </button>
+      </div>
+      <div class="margin-top6">
+        <a routerLink="/forgetPassword">Lost your password?</a>
+      </div>
+      <div class="display-flex md:flex-col sm:flex-col margin-top6">
+        <p>Don't have an account?</p>
+        <a routerLink="/register" class="text-blue-600">Create an account</a>
+      </div>
+      <div class="xl:mt-32">
+        <a routerLink="/register">privacy policy</a>
+      </div>
+    </form>
+  </div>
+</div>

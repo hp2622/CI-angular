@@ -1,0 +1,175 @@
+<div class="register-main">
+  <div class="register-left">
+    <app-banner></app-banner>
+  </div>
+  <div class="register-right">
+    <form class="example-form lg:p-4 p-2" [formGroup]="RegisterForm">
+      <div>
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>First Name</mat-label>
+          <div class="only-flex">
+            <input formControlName="firstName" matInput type="text" />
+            <span class="material-symbols-outlined"
+              ><mat-icon>person</mat-icon>
+            </span>
+          </div>
+          <mat-error class="red-text">Please enter first name</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="margin-top6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Last Name</mat-label>
+          <div class="only-flex">
+            <input formControlName="lastName" matInput type="text" />
+            <span class="material-symbols-outlined"
+              ><mat-icon>person</mat-icon>
+            </span>
+          </div>
+          <mat-error class="red-text">Please enter last name</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="margin-top6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Phone Name</mat-label>
+          <div class="only-flex">
+            <input formControlName="phoneNumber" matInput type="number" />
+            <span class="material-symbols-outlined"
+              ><mat-icon>call</mat-icon>
+            </span>
+          </div>
+          <mat-error
+            *ngIf="
+              RegisterForm.controls['phoneNumber'].invalid &&
+              RegisterForm.hasError('required', 'phoneNumber')
+            "
+            class="red-text"
+            >Please enter phoneNumber</mat-error
+          >
+          <mat-error
+            *ngIf="
+              RegisterForm.controls['phoneNumber'].invalid &&
+              RegisterForm.hasError('pattern', 'phoneNumber')
+            "
+            class="red-text"
+            >Please enter valid phoneNumber</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="margin-top6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Email</mat-label>
+          <div class="only-flex">
+            <input formControlName="email" matInput type="email" />
+            <span class="material-symbols-outlined"
+              ><mat-icon>mail</mat-icon>
+            </span>
+          </div>
+          <mat-error
+            *ngIf="
+              RegisterForm.controls['email'].invalid &&
+              RegisterForm.hasError('pattern', 'email')
+            "
+            class="red-text"
+            >Please enter valid Email</mat-error
+          >
+          <mat-error
+            *ngIf="
+              RegisterForm.controls['email'].invalid &&
+              RegisterForm.hasError('required', 'email')
+            "
+            class="red-text"
+            >Email is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="margin-top6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Password</mat-label>
+          <div class="only-flex">
+            <input
+              formControlName="password"
+              [type]="typeOfPassword"
+              matInput
+              (blur)="validatePassword()"
+            />
+            <span (click)="hideShowPassword()">
+              <mat-icon class="cursor-pointer">{{ eyeIcon }}</mat-icon></span
+            >
+          </div>
+          <mat-error
+            *ngIf="RegisterForm.hasError('pattern', 'password')"
+            class="red-text"
+          >
+            Password must contains at-least 1 UpperCase, 1 LowerCase, 1 Digit
+            and 1 Special character and must be 8 to 15 character...
+          </mat-error>
+
+          <mat-error
+            *ngIf="
+              RegisterForm.controls['password'].invalid &&
+              RegisterForm.hasError('required', 'password')
+            "
+            class="red-text mb-30"
+            ><span> Password is required</span></mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div
+        class="margin-top6"
+        [ngClass]="{
+          'mt-14':
+            RegisterForm.controls['password'].invalid &&
+            RegisterForm.hasError('pattern', 'password') &&
+            isPasswordBlur
+        }"
+      >
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Confirm Password</mat-label>
+          <div class="only-flex">
+            <input
+              formControlName="confirmPassword"
+              [type]="typeOfConfirmPassword"
+              matInput
+              (keyup)="checkPassword()"
+            />
+            <span (click)="hideShowConfirmPassword()">
+              <mat-icon class="cursor-pointer">{{
+                eyeIconConfirmPassword
+              }}</mat-icon></span
+            >
+          </div>
+          <mat-error class="red-text">Please enter Confirm Password</mat-error>
+        </mat-form-field>
+        <span
+          *ngIf="
+            !RegisterForm.controls['confirmPassword'].invalid && isPasswordMatch
+          "
+          class="red-text flex content-start"
+          >Password and ConfirmPassword must be same</span
+        >
+      </div>
+      <div>
+        <button
+          class="register-button hover:register-buttonhover"
+          mat-raised-button
+          (click)="onRegister()"
+        >
+          Register
+        </button>
+      </div>
+
+      <div class="display-flex margin-top6">
+        <a routerLink="/forgetPassword">Lost your password?</a>
+      </div>
+      <div class="margin-top6">
+        <a routerLink="/"
+          ><span class="text-blue-700">Already have an account ?</span
+          ><span class="text-black"> Login now </span></a
+        >
+      </div>
+      <div class="xl:mt-auto">
+        <a routerLink="/register">privacy policy</a>
+      </div>
+    </form>
+  </div>
+</div>

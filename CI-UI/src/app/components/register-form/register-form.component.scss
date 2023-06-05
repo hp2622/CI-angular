@@ -1,0 +1,100 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer components{
+
+
+   
+    .register-main{
+        @apply grid xl:grid-cols-12 
+    }
+    .register-left{
+        @apply col-span-8
+    }
+    
+    .register-right{
+        @apply col-span-4 flex justify-center text-center  xl:items-center h-100 
+    }
+    .red-text{
+        @apply text-red-600 font-bold
+    }
+
+    .display-flex{
+        @apply flex space-x-1 text-center justify-center xl:flex-row md:flex-col sm:flex-col
+    }
+    .register-button{
+        @apply w-btn-80 bg-white border-solid border-2 border-orange-500 text-orange-600 p-5 rounded-3xl
+    }
+    .register-buttonhover{
+        @apply w-btn-80 bg-orange-600 text-white  border-solid border-2 border-white
+    }
+    .only-flex{
+        @apply flex
+    }
+    .form-input{
+        @apply border-black 
+    }
+    .span-error{
+        @apply flex justify-self-start ms-4
+    }
+    
+    
+}
+
+.margin-top6{
+    margin-top:0.8rem ;
+ }
+.w-btn-80{
+    width: 80%;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+
+  }
+
+  .h-100{
+    height: 100vh; 
+  }
+  .w-100{
+    width: 100%;
+  }
+  @media only screen and (max-width: 1279px) {
+    .register-right{
+        @apply col-span-4 flex justify-center text-center xl:items-center h-100 w-100 mt-24
+    }
+    .register-button{
+        @apply w-btn-80 bg-white text-orange-500 hover:bg-orange-500 hover:text-white border-2 border-orange-600
+    }
+    .register-buttonhover{
+        @apply w-btn-80  bg-orange-500 text-white border-2 border-white
+    }
+    .w-100{
+        width: 100vw;
+    }
+    .h-100{
+        height: 100%; 
+        width: 100vw;
+    }
+  }
+
+ 
+  @media only screen and (max-width: 528px) {
+  .padding-form{
+    @apply p-5
+  }
+    .register-right{
+        @apply col-span-4 flex justify-center text-center xl:items-center h-100 w-100 mt-16
+    }
+  }
+
+
+  .example-full-width {
+    width: 100%;
+  }
