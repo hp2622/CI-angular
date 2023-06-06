@@ -22,10 +22,14 @@ export class LoginServiceService {
     return this.http.get<any>(`${this.baseUrl}getUser`);
   }
 
-  // getFakeUsers() {
-  //   const url = 'https://randomuser.me/api/?results=500';
-  //   return this.http.get<any>(url);
-  // }
+  getMissions() {
+    return this.http.get<any>(`https://localhost:7107/api/LandingPage`);
+  }
+
+  getFakeUsers() {
+    const url = 'https://randomuser.me/api/?results=100';
+    return this.http.get<any>(url);
+  }
 
   //service for sign-out user
   signOut() {

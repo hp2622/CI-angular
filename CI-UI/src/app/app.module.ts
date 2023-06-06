@@ -17,6 +17,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { ToastrModule } from 'ngx-toastr';
 import { TokenInterceptorInterceptor } from './interceptors/token-interceptor.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MatTableModule } from '@angular/material/table';
 
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 @NgModule({
@@ -39,6 +40,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     MatIconModule,
     HttpClientModule,
     ToastrModule.forRoot(),
+    NgxPaginationModule,
+    MatTableModule,
   ],
 
   //provide interceptors using provider

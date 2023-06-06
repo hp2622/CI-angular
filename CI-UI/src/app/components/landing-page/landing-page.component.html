@@ -1,7 +1,102 @@
 <button (click)="logout()" mat-raised-button>Logout</button>
 
-<ul *ngFor="let user of users">
+<!-- <ul *ngFor="let user of users">
   <li>{{ user.firstName }}</li>
   <li>{{ user.lastName }}</li>
   <li>{{ user.phoneNumber }}</li>
-</ul>
+</ul> -->
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Gender</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Picture</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="
+        let user of data
+          | paginate
+            : {
+                id: 'listing',
+                itemsPerPage: 10,
+                currentPage: page,
+                totalItems: totalRecords
+              }
+      "
+    >
+      <td>{{ user.gender }}</td>
+      <td>{{ user.name.first }}</td>
+
+      <td>{{ user.email }}</td>
+      <td>{{ user.location.coordinates.latitude }}</td>
+      <td>{{ user.location.coordinates.longitude }}</td>
+      <td><img src="{{ user.picture.medium }}" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+  <pagination-controls
+    id="listing"
+    [directionLinks]="true"
+    [maxSize]="5"
+    (pageChange)="page = $event"
+  ></pagination-controls>
+</div> -->
+
+<table>
+  <thead>
+    <tr>
+      <th>missionId</th>
+      <th>cityId</th>
+      <th>countryId</th>
+      <th>themeId</th>
+      <th>title</th>
+      <th>description</th>
+      <th>organizationName</th>
+      <th>organizationDetail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="
+        let mission of MissionData
+          | paginate
+            : {
+                id: 'listingMission',
+                itemsPerPage: 2,
+                currentPage: pageforMission,
+                totalItems: totalRecordsOfMission
+              }
+      "
+    >
+      <td>{{ mission.missionId }}</td>
+      <td>{{ mission.cityId }}</td>
+      <td>{{ mission.countryId }}</td>
+      <td>{{ mission.themeId }}</td>
+      <td>{{ mission.title }}</td>
+      <td>{{ mission.description }}</td>
+      <td>{{ mission.organizationName }}</td>
+      <td>{{ mission.organizationDetail }}</td>
+      <!-- <td>{{ user.name.first }}</td>
+
+      <td>{{ user.email }}</td>
+      <td>{{ user.location.coordinates.latitude }}</td>
+      <td>{{ user.location.coordinates.longitude }}</td>
+      <td><img src="{{ user.picture.medium }}" alt="" /></td> -->
+    </tr>
+  </tbody>
+</table>
+
+<div>
+  <pagination-controls
+    id="listingMission"
+    [directionLinks]="true"
+    [maxSize]="4"
+    (pageChange)="pageforMission = $event"
+  ></pagination-controls>
+</div>
